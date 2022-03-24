@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v6 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/nunito-font.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body class="form-v6">
+	<div class="page-content">
+		<div class="form-v6-content">
+			<div class="form-left">
+				<img src="{% static 'images/form3.jpg' %}" alt="form">
+			</div>
+
+
+					{% if t %}
+                    <div class="form-detail">
+                        <h2 class="form-detail"> Your Information Was Received Successfully</h2>
+                        <div class="form-row-last">
+                                <a href=""><input type="submit" name="register" class="register" value="Go Back Home"></a>
+                        </div>
+                    </div>
+
+					{% else %}
+                    <form class="form-detail" action="" method="POST">
+                        {% csrf_token %}
+						<h4 align="justify" class="turnblack">UNRESTRICTED is a conference that has been designed to re-orientate people and help them navigate its terrains of doing "the impossible". This conference is established to make people understand the importance of entrepreneurship and the relevance of growth in a skill or business. Beyond these and most importantly this conference in empowering young entrepreneurs and creative financially. To be qualified for this Grant. Please fill this form.</h4>
+						<h2>Grant Registration Form</h2>
+						<div class="form-row">
+							<input type="text" name="fullname" id="full-name" class="input-text" placeholder="Your Name" required>
+						</div>
+						<div class="form-row">
+							<input type="text" name="phoneno" id="phone-no" class="input-text" placeholder="Your Phone No" required>
+						</div>
+						<div class="form-row">
+							<input type="text" name="instagram" id="ig" class="input-text" placeholder="Instagram Handle (OPTIONAL)">
+						</div>
+						<div class="form-row">
+							<input type="text" name="emailaddress" id="your-email" class="input-text" placeholder="Email Address" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						</div>
+						<div class="form-row">
+							<input type="text" name="business" id="idea" class="input-text" placeholder="Business Idea / Craft / Skill" required>
+						</div>
+
+
+						<style>
+							textarea {
+							  width: 100%;
+							  height: 150px;
+							  padding: 12px 20px;
+							  box-sizing: border-box;
+							  border: 2px solid #ccc;
+							  border-radius: 4px;
+							  background-color: #f8f8f8;
+							  font-size: 16px;
+							  resize: none;
+							}
+						</style>
+						<div class="form-row">
+							<textarea rows="5", cols="52" type="text" name="description" id="descp" class="ta" placeholder="Description of what you do." required></textarea>
+						</div>
+
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Register">
+						</div>
+					{% endif %}
+				</form>
+
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
